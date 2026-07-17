@@ -4,393 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>L.K' Decorations | عبد اللطيف للجبس والديكور</title>
-    <!-- Google Fonts for professional Arabic typography -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        :root {
-            --primary-color: #d4af37; /* Gold */
-            --dark-bg: #121212; /* Premium Dark Background */
-            --card-bg: #1e1e1e;
-            --text-light: #ffffff;
-            --text-gray: #b3b3b3;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body {
-            background-color: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: rgba(18, 18, 18, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-weight: 900;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--text-light);
-            font-size: 1rem;
-            display: block;
-            font-weight: 400;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 20px;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 150px 20px 80px 20px;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(18,18,18,1)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-weight: 900;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin-bottom: 30px;
-            color: var(--text-gray);
-        }
-
-        .cta-btn {
-            background-color: var(--primary-color);
-            color: #000;
-            padding: 12px 30px;
-            border-radius: 5px;
-            font-weight: 700;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: transform 0.3s, background-color 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-3px);
-            background-color: #f1c40f;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 10px auto 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background-color: var(--card-bg);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-color);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-
-        /* Portfolio / Work Section */
-        .portfolio {
-            background-color: #1a1a1a;
-            padding: 80px 20px;
-        }
-
-        .portfolio-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .portfolio-item {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            background-color: var(--card-bg);
-            border: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        .portfolio-item img, .portfolio-item video {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .portfolio-info {
-            padding: 15px;
-            text-align: center;
-        }
-
-        .portfolio-info h4 {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 80px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-box {
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid var(--primary-color);
-        }
-
-        .whatsapp-btn {
-            background-color: #25d366;
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: transform 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0b0b0b;
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid rgba(212, 175, 55, 0.1);
-            color: var(--text-gray);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero h2 { font-size: 1.5rem; }
-            .nav-container { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; }
-        }
+        :root { --primary-color: #d4af37; --dark-bg: #121212; --card-bg: #1e1e1e; --text-light: #ffffff; --text-gray: #b3b3b3; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-light); line-height: 1.6; }
+        header { background-color: rgba(18, 18, 18, 0.95); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid rgba(212, 175, 55, 0.2); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+        .logo { font-weight: 900; font-size: 1.5rem; color: var(--primary-color); text-decoration: none; }
+        .logo span { color: var(--text-light); font-size: 1rem; display: block; font-weight: 400; }
+        .hero { padding: 150px 20px 80px 20px; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(18,18,18,1)); min-height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .hero h1 { font-size: 3rem; color: var(--primary-color); font-weight: 900; }
+        .hero h2 { font-size: 2rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 800px; margin-bottom: 30px; color: var(--text-gray); }
+        .cta-btn { background-color: var(--primary-color); color: #000; padding: 12px 30px; border-radius: 5px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+        .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--primary-color); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-card { background-color: var(--card-bg); padding: 30px; border-radius: 10px; text-align: center; border: 1px solid rgba(212, 175, 55, 0.1); }
+        .service-icon { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px; }
+        .portfolio { background-color: #1a1a1a; padding: 60px 20px; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .portfolio-item { border-radius: 10px; overflow: hidden; background-color: var(--card-bg); border: 1px solid rgba(212, 175, 55, 0.1); }
+        .portfolio-item img { width: 100%; height: 280px; object-fit: cover; display: block; }
+        .portfolio-info { padding: 15px; text-align: center; color: var(--primary-color); font-weight: bold; }
+        .contact { padding: 60px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact-box { background-color: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--primary-color); }
+        .whatsapp-btn { background-color: #25d366; color: white; padding: 15px 40px; border-radius: 50px; font-size: 1.3rem; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; }
+        footer { background-color: #0b0b0b; text-align: center; padding: 30px; color: var(--text-gray); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <!-- Header & Navigation -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">
-                L.K' Decorations
-                <span>عبد اللطيف للجبس والديكور</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#services">خدماتنا</a></li>
-                <li><a href="#work">أعمالنا</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
-            </ul>
+            <a href="#" class="logo">L.K' Decorations<span>عبد اللطيف للجبس والديكور</span></a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="about">
+    <section class="hero">
         <h1>L.K' Decorations</h1>
         <h2>عبد اللطيف للجبس والديكور</h2>
-        <p>متخصصون في تنفيذ جميع أعمال الأسقف المستعارة، ألواح الجبس بورد (Gypsum Board)، والأسمنت بورد (Cement Board) بأحدث التصاميم العصرية وبدقة متناهية في جميع أنحاء المملكة العربية السعودية.</p>
-        <a href="https://wa.me/966XXXXXXXXX" class="cta-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i> تواصل معنا الآن
-        </a>
+        <p>متخصصون في تنفيذ جميع أعمال الأسقف المستعارة، ألواح الجبس بورد (Gypsum Board)، والأسمنت بورد (Cement Board) بأحدث التصاميم العصرية وبدقة متناهية في المملكة العربية السعودية.</p>
+        <a href="https://wa.me/966500000000" class="cta-btn"><i class="fab fa-whatsapp"></i> تواصل معنا عبر الواتساب</a>
     </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
+    <section class="services">
         <h2 class="section-title">خدماتنا المميزة</h2>
         <div class="services-grid">
-            <div class="service-card">
-                <i class="fa-solid fa-person-shelter service-icon"></i>
-                <h3>ديكورات جبس بورد</h3>
-                <p>تصميم وتركيب أسقف جبس بورد كلاسيكية ومودرن تضفي جمالاً رائعاً على غرف المعيشة والمجالس.</p>
+            <div class="service-card"><i class="fa-solid fa-person-shelter service-icon"></i><h3>ديكورات جبس بورد</h3></div>
+            <div class="service-card"><i class="fa-solid fa-border-all service-icon"></i><h3>أسقف مستعارة</h3></div>
+            <div class="service-card"><i class="fa-solid fa-hammer service-icon"></i><h3>أسمنت بورد</h3></div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <h2 class="section-title">معرض أعمالنا</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="1755858952821.8ac1476ca1ed2f5071f3cf0395c88b19.png" alt="Work 1">
+                <div class="portfolio-info">ديكور أسقف جبس بورد</div>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-border-all service-icon"></i>
-                <h3>أسقف مستعارة</h3>
-                <p>تركيب أسقف مستعارة بمختلف الأنواع للمكاتب، الشركات، والمنازل بأعلى معايير الجودة.</p>
+            <div class="portfolio-item">
+                <img src="1756726991647.fad04c4a67f4d686d57920a20cd649a5.png" alt="Work 2">
+                <div class="portfolio-info">تنفيذ أسقف مستعارة عصرية</div>
             </div>
-            <div class="service-card">
-                <i class="fa-solid fa-hammer service-icon"></i>
-                <h3>أسمنت بورد</h3>
-                <p>تنفيذ جدران وقواطع أسمنت بورد (Cement Board) مقاومة للرطوبة والعوامل الجوية للداخل والخارج.</p>
+            <div class="portfolio-item">
+                <img src="IMG-20251017-WA0001.jpg" alt="Work 3">
+                <div class="portfolio-info">تركيب ألواح ديكور</div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio / Work Section -->
-    <section class="portfolio" id="work">
-        <div class="portfolio-container">
-            <h2 class="section-title">معرض أعمالنا (الصور والفيديوهات)</h2>
-            <p style="text-align: center; margin-bottom: 40px; color: var(--text-gray);">شاهد جودة أعمالنا في الجبس والأسقف والديكور</p>
-            
-            <div class="portfolio-grid">
-                
-                <!-- Portfolio Item 1 (Image) -->
-                <div class="portfolio-item">
-                    <!-- Replace the src with your actual photo file name -->
-                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="جبس بورد">
-                    <div class="portfolio-info">
-                        <h4>تصميم سقف جبس بورد مودرن</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 2 (Video Option) -->
-                <div class="portfolio-item">
-                    <!-- Replace the src with your video file name or upload to hosting -->
-                    <video controls poster="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600&q=80">
-                        <source src="your-work-video.mp4" type="video/mp4">
-                        متصفحك لا يدعم تشغيل الفيديو.
-                    </video>
-                    <div class="portfolio-info">
-                        <h4>فيديو من موقع العمل (طريقة التركيب)</h4>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 3 (Image) -->
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=600&q=80" alt="أسمنت بورد">
-                    <div class="portfolio-info">
-                        <h4>تركيب أسقف مستعارة مع إضاءة مخفية</h4>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="section-title">تواصل معنا اليوم</h2>
+    <section class="contact">
         <div class="contact-box">
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">هل تبحث عن عمل متقن وديكورات رائعة لبيتك أو مكتبك في السعودية؟</p>
-            <p style="color: var(--primary-color); font-weight: bold; font-size: 1.3rem;">تواصل مع المعلم عبد اللطيف مباشرة عبر الواتساب للحصول على استشارة وتسعيرة مجانية!</p>
-            
-            <!-- Replace 966XXXXXXXXX with your actual WhatsApp phone number with country code -->
-            <a href="https://wa.me/966536330563?text=مرحبا%20عبداللطيف،%20ارغب%20في%20الاستفسار%20عن%20اعمال%20الجبس%20والديكور" class="whatsapp-btn" target="_blank">
-                <i class="fab fa-whatsapp"></i> راسلنا عبر الواتساب
-            </a>
+            <h3>تواصل مع المعلم عبد اللطيف مباشرة عبر الواتساب للحصول على تسعيرة مجانية!</h3>
+            <a href="https://wa.me/966500000000" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> راسلنا واتساب</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 L.K' Decorations | عبد اللطيف للجبس والديكور. جميع الحقوق محفوظة.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #555;">المملكة العربية السعودية</p>
+        <p>&copy; 2026 L.K' Decorations | عبد اللطيف للجبس والديكور. المملكة العربية السعودية</p>
     </footer>
 
 </body>
